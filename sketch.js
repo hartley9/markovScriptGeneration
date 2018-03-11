@@ -1,12 +1,9 @@
-var myCanvas, input, submit, clearStuff, ngrams, sentenceNumber, markov, out;
-var x=160, y=240;
+var input, inp, submit, clearStuff, markov, data, out, x=160, y=240;
 
 function setup() {
 	//createCanvas(windowWidth, windowHeight);
-	myCanvas = createCanvas(windowWidth, windowHeight);
-	myCanvas.parent('container');
-
-
+	noCanvas();
+	background(250, 255, 200);
 	textFont('times', 18);
 
 	textInput = select("#textfield")
@@ -14,8 +11,8 @@ function setup() {
 	submit = select("#submit");
 	submit.mousePressed(markovRita);
 
-	//clearStuff = select("#clear");
-	//clearStuff.mousePressed(clearCanvas)
+	clearStuff = select("#clear");
+	clearStuff.mousePressed(clearCanvas);
 
 	/*
 	subBut = createButton('submit');
@@ -32,10 +29,7 @@ function setup() {
 
 function drawText() {
 	//text(out, x, y, windowWidth/2, windowHeight/2);
-	console.log(ngrams);
-	var elt = document.getElementById('output');
-	var myP = createP(out);
-	myP.parent(elt);
+	createP(out);
 }
 
 function clearCanvas(){
@@ -46,20 +40,14 @@ function clearCanvas(){
 
 function markovRita() {
 
-
-	sentenceNumber = select("#sentNumber");
-	sentenceNumber = parseInt(sentenceNumber.value());
-	ngrams = select("#ngrams");
-	ngrams = parseInt(ngrams.value());
-
 	//data = document.getElementById("form1");
 	//input = data.elements["input"].value;
 
-	markov = new RiMarkov(ngrams);
+	markov = new RiMarkov(2);
 
 	markov.loadText(textInput.value());
 
-	out = markov.generateSentences(sentenceNumber);
+	out = markov.generateSentences(5);
 	console.log(out);
 
 	drawText();
