@@ -1,6 +1,6 @@
-body
+html, body
 {
-  background-color: #EEE;
+  overflow-y: scroll;
 }
 
 #header
