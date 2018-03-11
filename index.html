@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<title>p5Markov</title>
+
+	<script src="libraries/p5.js"></script>
+	<script src="libraries/p5.dom.js"></script>
+	<script src="libraries/p5.sound.js"></script>
+	<script src="libraries/rita-full.js"></script>
+	<script src="sketch.js"></script>
+
+	<link rel="stylesheet" type="text/css" href="styles.css"/>
+
+	<style>
+		body {
+			margin:0;
+			padding:0;
+			overflow: hidden;
+		}
+		canvas {
+			margin:auto;
+		}
+	</style>
+</head>
+<body>
+	<div id="container">
+		<div id="header">
+			<h1>Markov Chain: v1.2</h1>
+		</div>
+
+		<div id="navigation">
+			<h3>Navigation</h3>
+		</div>
+
+		<div id="content">
+
+			<div id="input">
+				<h3>Input area</h3>
+
+				<ul>Possible reasons for no output
+					<li>Not proper sentences: text needs to start with a capital letter with no preceeding spaces.</li>
+					<li><b>SOURCE TEXT IS NOT LONG ENOUGH</b></li>
+				</ul>
+				Please note: You can resize the box AND please enter text before pressing submit.
+				Reload the page to clear it.
+				<br><br>
+				ngrams:
+				<select id="ngrams"> Ngrams:
+					<option value="1">1</option>
+					<option value="2">2</option>
+					<option value="3">3</option>
+					<option value="4">4</option>
+				</select>
+
+				<br><br>
+
+				number of sentences:
+				<input type="number" id="sentNumber">
+
+				<br><br>
+
+				<textarea id="textfield">Please enter your input text here.</textarea>
+				<button id="submit">submit</button>
+
+			</div>
+			<div id="output">
+				<h3>Output area</h3>
+
+			</div>
+		</div>
+		<div id="footer">
+			By Kobi Hartley. For the purposes of collaboration with Josh Cannon.
+		</div>
+	</div>
+</body>
+</html>
