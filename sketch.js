@@ -1,4 +1,4 @@
-var myCanvas;
+//ovar myCanvas;
 var submit, clearStuff;
 var ngrams, sentenceNumber, markov, out;
 var imgPingu, imgJosh
@@ -10,7 +10,7 @@ function setup() {
 	myCanvas.parent('container');
 
 
-	imgPingu = loadImage("pingu.jpg");
+	//imgPingu = loadImage("pingu.jpg");
 	imgJosh = loadImage("josh.jpg");
 
 	//img.parent('container');
@@ -21,28 +21,28 @@ function setup() {
 	textInput = select("#textfield")
 
 	submit = select("#submit");
+
 	submit.mousePressed(markovRita);
 
 }
-
+//Do i need this????
 function draw()
 {
 
 }
 
-function mouseWheel(event)
+function inputCheck(textInput)
 {
-	var randX = random(0, windowWidth);
-	var randY = random(0, windowHeight);
-
-	var ping = image(imgPingu, randX, randY, imgPingu.width/2, imgPingu.height/2);
-	ping.parent('#header');
-
-	var josh = image (imgJosh, randX, randY, imgJosh.width/2, imgJosh.height/2);
-	josh.parent('#input');
-
+	console.log(textInput.value);
+	if (textInput.value == null)
+	{
+		console.log("Please enter some text");
+	}
+	else
+	{
+		markovRita();
+	}
 }
-
 
 function drawText() {
 	//text(out, x, y, windowWidth/2, windowHeight/2);
@@ -66,12 +66,14 @@ function markovRita() {
 	ngrams = select("#ngrams");
 	ngrams = parseInt(ngrams.value());
 
-	//data = document.getElementById("form1");
-	//input = data.elements["input"].value;
 
 	markov = new RiMarkov(ngrams);
 
+
 	markov.loadText(textInput.value());
+	console.log(textInput.value);
+
+
 
 	out = markov.generateSentences(sentenceNumber);
 	console.log(out);

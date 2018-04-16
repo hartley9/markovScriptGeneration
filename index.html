@@ -13,6 +13,8 @@
 	<script src="libraries/rita-full.js"></script>
 	<script src="sketch.js"></script>
 
+	<script src="node_modules/lindenmayer/dist/lindenmayer.browser.js"></script>
+
 	<link rel="stylesheet" type="text/css" href="styles.css"/>
 
 	<style>
@@ -29,29 +31,33 @@
 <body>
 	<div id="container">
 		<div id="header">
-			<h1>Markov Chain: v1.2</h1>
+			<h1>(PROTOTYPE) Markov Chain: v1.1.2</h1>
 		</div>
 
 		<div id="navigation">
-			<h3>Navigation</h3>
+			<h3></h3>
+			<p></p>
 		</div>
 
 		<div id="content">
 
 			<div id="input">
 				<h3>Input area</h3>
-
-				<ul>Possible reasons for no output
-					<li>Not proper sentences: text needs to start with a capital letter
-						with no preceeding spaces.
-					</li>
-					<li><b>SOURCE TEXT IS NOT LONG ENOUGH</b></li>
-				</ul>
+				<p>
+					<ul>Possible reasons for no output
+						<li>Not proper sentences: text needs to start with a capital letter
+							with no preceeding spaces.
+						</li>
+						<li>
+							<b>SOURCE TEXT IS NOT LONG ENOUGH</b>
+						</li>
+					</ul>
+				</p>
 				Please note: You can resize the box AND please enter text before pressing submit.
 				Reload the page to clear it.
 				<br><br>
 				ngrams:
-				<select id="ngrams"> Ngrams:
+				<select name="ngrams" id="ngrams"> Ngrams:
 
 					<option value="2">2</option>
 					<option value="3">3</option>
